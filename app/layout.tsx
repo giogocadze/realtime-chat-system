@@ -27,6 +27,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="w-full text-center  text-2xl p-2">
+          RealTimeChatSystem
+        </header>
         {children}
       </body>
     </html>
