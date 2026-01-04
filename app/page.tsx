@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div>
       {
-        user ? <ChatApp /> : <SignIn />
+        user ? <ChatApp user={user} /> : <SignIn />
       }
     </div>
   );
