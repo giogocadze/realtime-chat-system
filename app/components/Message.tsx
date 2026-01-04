@@ -1,12 +1,13 @@
 "use client"
 import { useEffect, useState } from "react"
-import { Messages } from "./ChatContainer"
+
 import Image from "next/image"
 import { auth } from "@/firebase"
 import { User, onAuthStateChanged } from "firebase/auth"
+import { Message } from "./ChatContainer"
 
 
-const MessageS = ({ message }: { message: Messages }) => {
+const MessageS = ({ message }: { message: Message }) => {
 
   const [user, setUser] = useState<User | null>(null)
 

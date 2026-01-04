@@ -7,7 +7,7 @@ import { useState } from "react"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 
 
-const ChatApp = ({user} : {user: User}) => {
+const ChatApp = ({ user }: { user: User }) => {
 
     const [inputText, setInputText] = useState("")
     const [Loading, setLoading] = useState(false)
@@ -26,7 +26,7 @@ const ChatApp = ({user} : {user: User}) => {
                 userEmail: user.email,
                 userPicture: user.photoURL,
                 userName: user.displayName,
-                date : serverTimestamp()
+                date: serverTimestamp()
             })
             setInputText("")
         } catch (e) {
@@ -40,8 +40,15 @@ const ChatApp = ({user} : {user: User}) => {
         <div className="flex flex-col gap-2  mx-auto max-w-7xl  items-center" >
             <ChatContainer />
             <div className="w-100 border flex " >
-                <input type="text" placeholder="Type Here" className="w-full px-4 py-2" value={inputText} onChange={(e) => setInputText(e.target.value)} />
-                <button className="px-4 py-2 bg-indigo-700 text-white cursor-pointer disabled:bg-gray-500  disabled:cursor-not-allowed"  onClick={handleSendMassage}  disabled={Loading}>Send</button>
+                <input type="text" placeholder="Type Here" className="w-full px-4 py-2" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => 
+                {
+                    if (e.key === "Enter") {
+                        e.preventDefault()
+                        handleSendMassage()
+                    }
+
+                }} />
+                <button className="px-4 py-2 bg-indigo-700 text-white cursor-pointer disabled:bg-gray-500  disabled:cursor-not-allowed" onClick={handleSendMassage} disabled={Loading}>Send</button>
             </div>
             <button className="rounded-full border px-4 py-2 cursor-pointer w-fit" onClick={HandleSingOut} >
                 Sing Out
