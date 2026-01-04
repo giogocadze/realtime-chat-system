@@ -3,7 +3,8 @@
 import { db } from "@/firebase"
 import { collection, onSnapshot, orderBy, query, Timestamp } from "firebase/firestore"
 import { useEffect, useState } from "react"
-type Messages = {
+import MessageS from "./Message"
+export type Messages = {
     id: string
     message: string,
     userEmail: string,
@@ -26,8 +27,8 @@ const ChatContainer = () => {
         return () => unsubcribe()
     }, [])
     return (
-        <div className="border w-full h-125 p-4 rounded-3xl " >
-            {messages.map((messages) => <span key={messages.id}>{messages.message}</span> )}
+        <div className="border w-full h-125 p-4 rounded-3xl flex flex-col gap-2 " >
+            {messages.map((messages) => <MessageS  key={messages.id} message={messages} />)}
         </div>
     )
 }
