@@ -21,11 +21,10 @@ The app uses **Firestore real-time listeners** to instantly sync messages across
 ## 🛠 Tech Stack
 
 ### Frontend
-- Next.js (App Router)
+- Next.js 
 - React
 - TypeScript
 - Tailwind CSS
-- next/image
 
 ### Backend / Realtime
 - Firebase
